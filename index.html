@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html ng-app="ionicApp">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+
+  <title>Beaukart Mobile</title>
+  <link href='http://fonts.googleapis.com/css?family=Quicksand|Nunito' rel='stylesheet' type='text/css'>
+  <link href="js/ionic.min.css" rel="stylesheet">
+  <script src="js/ionic.bundle.min.js"></script>
+  <script src="js/parse-1.2.17.js"></script>
+
+  <script src="js/app.js"></script> 
+
+  <style>
+     
+      .bar.bar-positive, .tabs-positive>.tabs, .tabs.tabs-positive{border-color:#f15857;background-color:#f15857;background-image:linear-gradient(0deg,#f15857,#f15857 50%,transparent 50%);color:#fff}
+      
+      body{font-family: 'Nunito', sans-serif;}
+      .box {height:300px;padding: 10px}
+      .padding{ padding:5px; }
+      .prodblk
+      {
+          width:140px;
+          float:left;
+          margin:6px;
+         
+      }
+      .prodblk a.prodlink
+      {
+          width:100%;
+          min-height:60px;
+          display:block;
+          text-align:center;
+          vertical-align:middle;
+          color:#f1c40f;
+          text-decoration:none;
+          font-size:16px;
+          padding-top:110px;
+          padding-bottom:10px;
+          border:1px solid #dddddd;
+         
+          box-shadow:1px 1px 1px #ddd;
+          
+      }
+      .prodlist
+      {
+          width:94%;
+          margin:10px auto;
+          background:rgba(189, 195, 199,0.6);
+          padding:0px;
+          
+      }
+      .basicinfo
+      {
+           width:72%;
+          margin:5px auto;
+      }
+      .clear
+      {
+          clear:both;
+      }
+      .sareesimg
+      {
+        background:#ffffff url(images/sarees1.png) no-repeat center 0px; 
+      }
+      .lengasimg
+      {
+        background:#ffffff url(images/lengas.png) no-repeat center 0px; 
+      }
+      .suitesimg
+      {
+        background:#ffffff url(images/suites.png) no-repeat center 0px; 
+      }
+      .kurtisimg
+      {
+        background:#ffffff url(images/kurtis.png) no-repeat center 0px; 
+      }
+      .bgimg
+      {
+         background:#dddddd url(images/bgimg2.png) left bottom no-repeat;   
+      }
+      .item
+      {
+          background:rgba(236, 240, 241,0.6);
+          color:#f7f7f7;
+          border-color: #ccc;
+          font-family: 'Nunito', sans-serif;
+          font-weight:400;
+      }
+      .bar .title
+      {
+         font-family: 'Quicksand', sans-serif;
+          font-weight:400;
+          font-size:24px;
+          
+      }
+      .desc
+      {
+        font-family: 'Nunito', sans-serif;
+          font-weight:400;   
+           color:#f7f7f7;
+           font-size:15px;
+           text-align:center;
+           padding:20px;
+      }
+      .input-label
+      {
+           font-weight:400;
+          color:#f7f7f7;
+          max-width: 300px;
+      }
+      .item-divider
+      {
+          background:#00b89c;
+      }
+      .item-input input.textbx
+      {
+          border:2px solid #ccc !important;
+          border-radius:3px;
+          margin:0 10px;
+          background:#efefef;
+          flex: 1 0 80px;
+      }
+      .item-divider .input-label
+      {
+          width:33%;
+          text-align:left;
+          display:inline-block;
+          padding:0;
+      }
+      .button-bar .button
+      {
+           font-family: 'Nunito', sans-serif;
+          font-weight:400;  
+          font-size:14px;
+          background:none;
+          color:#ffffff;
+      }
+      .button-bar .button.select
+      {
+          background:#3498db;
+      }
+      #execdash thead th {
+    background: none repeat scroll 0 0 #2C2C2C;
+    color: #FFFFFF;
+    text-shadow: none;
+}
+#execdash tr th {
+    background-color: #DDDDDD;
+    color: #40526D;
+    font-size: 13px;
+    margin: 0 auto;
+    padding: 5px 0 5px 5px;
+}
+#execdash td
+{
+    padding:5px 10px;
+}   
+.total-item .input-label
+{
+    color:#e74c3c;
+    font-size:18px;
+}   
+.proddesc
+{
+    background:rgba(236, 240, 241,0.8)
+}
+.proddesc p
+{
+    padding:10px;
+}
+.prodthumb{
+	width:30%;
+	float:left;
+}
+.col .prodimg{
+	display:block;
+}
+.col .prodimg img{
+	max-width:100%;
+	border:2px solid #d35400;
+	box-shadow:0px 0px 1px 2px #f39c12;
+}
+.pord64{
+	width:64px;
+	float:left;
+	margin-right:10px;
+	height:64px;
+	overflow:hidden;
+}
+.pord64 img{
+	max-width:100%;
+}
+.lehengeslist .item-thumbnail-left{
+	padding-left:10px;
+}
+.proddesc h4{
+	color:#c0392b;
+	padding-left:10px;
+}
+.tabs-royal>.tabs, .tabs.tabs-royal, .bar.bar-royal{
+	background:#2980b9;
+	border-color: #2980b9;
+}
+  </style>      
+</head>
+
+<body ng-controller="DataCtrl">
+
+  <ion-nav-bar class="nav-title-slide-ios7 bar-positive">
+    <ion-nav-back-button class="button-icon ion-arrow-left-c">
+    </ion-nav-back-button>
+  </ion-nav-bar>
+
+  <ion-nav-view animation="slide-left-right"></ion-nav-view>
+
+    
+  <script id="menu.html" type="text/ng-template">
+    <ion-side-menus>
+
+      <ion-side-menu side="left">
+        <ion-header-bar class="bar bar-header bar-royal">
+          <h1 class="title">Menu</h1>
+        </ion-header-bar>
+        <ion-content>
+          <ul class="list">
+		    <a ng-repeat="cat in cats" href="#/menu/tab/list/{{cat.id}}/0" class="item" menu-toggle="left">{{cat.title}}({{cat.post_count}})</a>
+          </ul>
+        </ion-content>
+      </ion-side-menu>
+
+      <ion-side-menu-content>        
+        <ion-nav-view name="menuContent"></ion-nav-view>
+      </ion-side-menu-content>
+
+    </ion-side-menus>
+  </script>    
+    
+  <script id="tabs.html" type="text/ng-template">
+    <ion-nav-bar class="bar bar-header bar-royal">
+        <ion-nav-back-button class="button-icon ion-arrow-left-c">
+        </ion-nav-back-button>
+        <ion-nav-buttons side="left">
+          <button class="button button-icon button-clear ion-navicon" ng-click="toggleLeft()"></button>
+        </ion-nav-buttons>
+
+        <ion-nav-buttons side="right">
+          <button class="button button-icon button-clear ion-compose" ng-click="//modal.show()"></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+        
+    <ion-tabs class="tabs-icon-top tabs-royal">
+
+      <ion-tab title="Home" icon="ion-home" href="#/menu/tab/buttons">
+        <ion-nav-view name="buttons-tab"></ion-nav-view>
+      </ion-tab>
+
+       <ion-tab title="Categories" icon="ion-ios7-keypad" href="#/menu/tab/cats" >
+        <ion-nav-view name="list-tab"></ion-nav-view>
+      </ion-tab>
+
+      <ion-tab title="About Us" icon="ion-ios7-location" href="#/menu/tab/about">
+        <ion-nav-view name="exedash-tab"></ion-nav-view>
+      </ion-tab>
+
+      <ion-tab title="Contact Us" icon="ion-speakerphone" href="#/menu/tab/item">
+        <ion-nav-view name="item-tab"></ion-nav-view>
+      </ion-tab>
+    </ion-tabs>
+  </script>
+
+  <script id="buttons.html" type="text/ng-template">
+    <ion-view title=" Home ">
+      <ion-content class="padding bgimg" >
+	  <p>
+        <img src="images/logo3.png" />     
+		  
+      
+        </p>
+       
+       <ion-slide-box>
+          <ion-slide>
+            <div class="box">
+               <img src="images/balaji-960x300.png"/>
+               <p>{{pstore.imgs[0][0]}}</p>
+            </div>
+          </ion-slide>
+          <ion-slide >
+            <div class="box">
+               <img src="images/vizag.jpg" />
+                <p>{{pstore.imgs[1][0]}}</p>
+            </div>
+          </ion-slide>
+          <ion-slide>
+            <div class="box">
+                <img src="images/hyd_hitech-960x300.png" />
+                <p>{{pstore.imgs[2][0]}}</p>
+            </div>
+          </ion-slide>
+		  <ion-slide>
+            <div class="box">
+                <img src="images/2985536-960x300-960x300.jpg" />
+                <p>{{pstore.imgs[2][0]}}</p>
+            </div>
+          </ion-slide>
+        </ion-slide-box>      
+      </ion-content>
+    </ion-view>
+  </script>
+<script id="cats.html" type="text/ng-template">
+    <ion-view title="Categories">
+      <ion-content class="padding bgimg" >
+        <p class="desc"><img src="images/logo3.png" /></p>      
+		   <div ng-repeat="cat in catposts" class="prodblk" >
+				<a class="prodlink sareesimg" style="background:#ffffff url({{cat[1].thumbnail}}) no-repeat center 0px;"  href="#/menu/tab/list/{{cat[0].id}}/0">{{cat[0].title}}</a>
+			</div> 
+        <div class="clear"></div>
+        <p>
+       
+        </p>        
+      </ion-content>
+    </ion-view>
+  </script>
+ 
+  
+   <script id="list.html" type="text/ng-template">
+	<ion-view title="{{catTitle}}" >
+		<ion-content class="padding bgimg">
+			<div class="list">
+				<div class="item item-divider">
+					{{catTitle}}
+				</div> 
+				<div ng-repeat="post in childCats" class="list">
+					<a name="listview" class="item item-thumbnail-left" href="#/menu/tab/single-product/{{post.id}}">
+					  <img src="{{post.thumbnail}}" />
+					  <h2>{{post.title}}</h2>
+					  <p>{{post.title_plain}}</p>
+					</a>
+				</div>
+				
+				<div ng-show="childCats.length<=0">
+					<div ng-show="dpr.length>0" ng-repeat="p3 in dpr" class="row">
+					  <div ng-repeat="product in p3" class="col">
+						  <a class="prodimg"  href="#/menu/tab/single-product/{{product.id}}">
+						  <img src="{{product.img1}}" /></a>
+					  </div> 
+					</div>
+					<div ng-show="dpr.length<=0" class="row">
+					  <div  class="col">
+						<font class=desc >No Products!</font>
+					  </div>
+					</div>
+				</div>
+				<div class="row">
+				 
+				  <div ng-show="currentpage>0" class="col col-33"><a class="button icon-left ion-chevron-left button-clear button-light" href="#/menu/tab/list/{{currentcat}}/{{currentpage-1}}" >Back</a> </div>
+				 					
+				  <div ng-show="currentpage+1<sposts.length" class="col col-33 col-offset-33"><a class="button icon-left ion-chevron-right button-clear button-light" href="#/menu/tab/list/{{currentcat}}/{{currentpage+1}}" >Next</a></div>
+				</div>
+
+				
+				
+			</div>
+      </ion-content>
+    </ion-view>
+  </script> 
+ 
+  <script id="prodlist.html" type="text/ng-template">
+    <ion-view title="Products List" >
+		 
+      <ion-content class="padding bgimg">
+	  <div class="item item-divider">
+			{{catId}}
+          </div>
+	  <div ng-show="dpr.length>0" ng-repeat="p3 in dpr" class="row">
+		  <div ng-repeat="product in p3" class="col">
+		  <a class="prodimg"  href="#/menu/tab/single-product/{{product.id}}">
+		  <img src="{{product.img1}}" /></a>
+		  </div> 
+		   
+	  </div>
+	   <div ng-show="dpr.length<=0" class="row">
+		  <div  class="col">
+			<font class=desc >No Products!</font>
+		  </div> 
+		   
+	  </div>
+      </ion-content>
+    </ion-view>
+  </script>
+  <script id="single-product.html" type="text/ng-template">
+    <ion-view title="{{post.categories[0].title}}">
+      <ion-header-bar class="bar-positive">
+          <button class="button button-icon button-clear ion-navicon" ng-click="toggleLeft()"></button>
+          <h1 class="title">{{post.title}}</h1>
+      </ion-header-bar>
+      <ion-content>
+        <div class="list proddesc" style="padding-top:50px;">
+			
+          <div class="item item-divider">
+            <span class="input-label">{{post.title}} </span>
+          </div>
+		  <p ng-repeat="atch in post.attachments"><img src="{{atch.images.medium.url}}"></p>
+		  <p ng-bind-html="post.content"></p>
+		  
+        </div>
+
+       </ion-content>    
+    </ion-view>
+  </script>  
+  
+  <script id="item.html" type="text/ng-template">
+    <ion-view title="Detail View">
+      <ion-content class="padding bgimg">
+       <div class="list proddesc">
+          <div class="item item-divider">
+           <span class="input-label">Contact Us</span>
+          </div>
+         
+        </div>
+      </ion-content>
+    </ion-view>
+  </script>
+
+ <script id="exedash.html" type="text/ng-template">
+    <ion-view title="Stores">
+      <ion-content class="padding bgimg">
+       
+        
+      </ion-content>
+    </ion-view>
+  </script>
+  
+  <script id="about.html" type="text/ng-template">
+    <ion-view title="About Us">
+	
+      <ion-content class="padding bgimg" >
+          <div class="list proddesc padding" >
+	
+            <h4 class="title">Travel Lokam</h4>
+            <span >
+			 <p>Bounding charin natural resources, the state of Andhra Pradesh having the longest eastern coastline and with a trail of Buddha Period glory, houses and holds many heritage sites adorned with pristine splendor, the forts, citadels and architectural masterpieces built by the past Royal hegemony and its noble Emperors. The magnificent palaces and places, monuments, memorials, tombs and stately structures built by them reflect the art and craftsmanship, architecture and culture that originated on this land.</p>
+			</span>
+			
+          </div> 
+		  
+        </ion-content>
+    </ion-view>
+  </script>    
+
+  <script id="modal.html" type="text/ng-template">
+    <div class="modal">
+      <ion-header-bar class="bar bar-header bar-positive">
+        <h1 class="title">Modal</h1>
+        <button class="button button-clear button-primary" ng-click="modal.hide()">Cancel</button>
+      </ion-header-bar>
+      
+      <ion-content class="padding">
+        <div class="list">
+          <label class="item item-input">
+            <span class="input-label">To</span>
+            <input type="text">
+          </label>
+          <label class="item item-input">
+            <span class="input-label">Message</span>
+            <textarea rows="4"></textarea>
+          </label>
+        </div>
+        <button class="button icon icon-right ion-arrow-right-c button-balanced button-block">Send</button>
+      </ion-content>
+    </div>
+  </script>  
+      
+</body>
+</html>
