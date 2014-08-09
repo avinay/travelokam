@@ -232,6 +232,7 @@ angular.module('ionicApp', ['ionic'])
 			if($rootScope.posts[i].categories[j].id+""==$stateParams.catId){
 				catTitle=$rootScope.posts[i].categories[j].title;
 				posts.push($rootScope.posts[i]);
+				
 			}
 		}
 	}
@@ -269,6 +270,7 @@ angular.module('ionicApp', ['ionic'])
 				if(cats!="error")
 				{
 					$rootScope.cats=cats.data.categories;
+					console.log($rootScope.cats.length);
 					
 					for (var i=0;i<$rootScope.cats.length;i++)
 					{
@@ -291,11 +293,13 @@ angular.module('ionicApp', ['ionic'])
 									if( $rootScope.posts[j].categories[0].id==$rootScope.cats[i].id){
 										
 										temp.push($rootScope.cats[i]);
+										//console.log("ss2"+ $rootScope.cats[i].id);
 										temp.push($rootScope.posts[j]);
 										break;
 									}
 								}
 								$rootScope.catposts.push(temp);
+								//console.log($rootScope.catposts);
 							}
 							
 						}
@@ -375,6 +379,7 @@ angular.module('ionicApp', ['ionic'])
 			alert("Error connecting to server");
 		}
 	else{
+		 $scope.isVisible = true;
 		alert("Loading Completed!");
 	}
 	

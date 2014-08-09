@@ -18,7 +18,10 @@
       .bar.bar-positive, .tabs-positive>.tabs, .tabs.tabs-positive{border-color:#f15857;background-color:#f15857;background-image:linear-gradient(0deg,#f15857,#f15857 50%,transparent 50%);color:#fff}
       
       body{font-family: 'Nunito', sans-serif;}
-      .box {height:300px;padding: 10px}
+      .box {height:auto;padding: 10px; width:100%;}
+	  .box img{
+		  width:100%;
+	  }
       .padding{ padding:5px; }
       .prodblk
       {
@@ -61,22 +64,7 @@
       {
           clear:both;
       }
-      .sareesimg
-      {
-        background:#ffffff url(images/sarees1.png) no-repeat center 0px; 
-      }
-      .lengasimg
-      {
-        background:#ffffff url(images/lengas.png) no-repeat center 0px; 
-      }
-      .suitesimg
-      {
-        background:#ffffff url(images/suites.png) no-repeat center 0px; 
-      }
-      .kurtisimg
-      {
-        background:#ffffff url(images/kurtis.png) no-repeat center 0px; 
-      }
+     
       .bgimg
       {
          background:#dddddd url(images/bgimg2.png) left bottom no-repeat;   
@@ -204,6 +192,78 @@
 	background:#2980b9;
 	border-color: #2980b9;
 }
+.catitle{
+	background: rgba(46, 204, 113, 0.8);
+display: block;
+padding: 5px 0;
+color: #ffffff;
+}
+
+.spinner {
+  margin: 100px auto;
+  width: 60px;
+  height: 50px;
+  text-align: center;
+  font-size: 10px;
+}
+
+.spinner > div {
+  background-color: #ffffff;
+  height: 100%;
+  width: 6px;
+  display: inline-block;
+  
+  -webkit-animation: stretchdelay 1.2s infinite ease-in-out;
+  animation: stretchdelay 1.2s infinite ease-in-out;
+}
+
+.spinner .rect2 {
+  -webkit-animation-delay: -1.1s;
+  animation-delay: -1.1s;
+}
+
+.spinner .rect3 {
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+
+.spinner .rect4 {
+  -webkit-animation-delay: -0.9s;
+  animation-delay: -0.9s;
+}
+
+.spinner .rect5 {
+  -webkit-animation-delay: -0.8s;
+  animation-delay: -0.8s;
+}
+
+@-webkit-keyframes stretchdelay {
+  0%, 40%, 100% { -webkit-transform: scaleY(0.4) }  
+  20% { -webkit-transform: scaleY(1.0) }
+}
+
+@keyframes stretchdelay {
+  0%, 40%, 100% { 
+    transform: scaleY(0.4);
+    -webkit-transform: scaleY(0.4);
+  }  20% { 
+    transform: scaleY(1.0);
+    -webkit-transform: scaleY(1.0);
+  }
+}
+.logo{
+	background:rgba(250,250,250,0.8);
+	display:block;
+	padding:5px;
+	margin:0 auto;
+	width:60%;
+	border-radius:5px;
+	max-width:300px;
+}
+.logo img{
+	width:100%;
+}
+
   </style>      
 </head>
 
@@ -274,8 +334,10 @@
   <script id="buttons.html" type="text/ng-template">
     <ion-view title=" Home ">
       <ion-content class="padding bgimg" >
-	  <p>
-        <img src="images/logo3.png" />     
+	  
+	  <p class="logo">
+        
+		<img src="images/logo3.png" />     
 		  
       
         </p>
@@ -299,22 +361,25 @@
                 <p>{{pstore.imgs[2][0]}}</p>
             </div>
           </ion-slide>
-		  <ion-slide>
-            <div class="box">
-                <img src="images/2985536-960x300-960x300.jpg" />
-                <p>{{pstore.imgs[2][0]}}</p>
-            </div>
-          </ion-slide>
-        </ion-slide-box>      
+		</ion-slide-box>      
       </ion-content>
     </ion-view>
   </script>
 <script id="cats.html" type="text/ng-template">
     <ion-view title="Categories">
       <ion-content class="padding bgimg" >
-        <p class="desc"><img src="images/logo3.png" /></p>      
+        <p class="logo"><img src="images/logo3.png" /></p>   
+		<div class="spinner" ng-hide="isVisible">
+  <div class="rect1"></div>
+  <div class="rect2"></div>
+  <div class="rect3"></div>
+  <div class="rect4"></div>
+  <div class="rect5"></div>
+</div>
+		   
 		   <div ng-repeat="cat in catposts" class="prodblk" >
-				<a class="prodlink sareesimg" style="background:#ffffff url({{cat[1].thumbnail}}) no-repeat center 0px;"  href="#/menu/tab/list/{{cat[0].id}}/0">{{cat[0].title}}</a>
+				<a class="prodlink sareesimg" style="background:#ffffff url({{cat[1].thumbnail}}) no-repeat center 0px;"  href="#/menu/tab/list/{{cat[0].id}}/0"><span class="catitle">{{cat[0].title}}</span></a>
+				
 			</div> 
         <div class="clear"></div>
         <p>
