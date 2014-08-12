@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
     <widget xmlns   = "http://www.w3.org/ns/widgets"
         xmlns:gap   = "http://phonegap.com/ns/1.0"
-        id          = "com.phonegap.beaukart"
+        id          = "com.phonegap.travelokam"
         versionCode = "10" 
-        version     = "1.1.1" >
+        version     = "1.0.0" >
 
     <!-- versionCode is optional and Android only -->
 
@@ -13,9 +13,17 @@
        Travelokam Mobile Application for Travel Destinations
     </description>
 
-    <author href="https://travelokam.com" email="info@travelokam.com">
+    <author href="https://travelokam.com" email="saihosting@gmail.com">
         (Sai Ram) A Vinay Kumar
     </author>
+
+
+<icon src="ldpi.png" gap:platform="android" gap:qualifier="ldpi" />
+<icon src="mdpi.png" gap:platform="android" gap:qualifier="mdpi" />
+<icon src="hdpi.png" gap:platform="android" gap:qualifier="hdpi" />
+<icon src="xhdpi.png" gap:platform="android" gap:qualifier="xhdpi" />
+<icon src="xxhdpi.png" gap:platform="android" gap:qualifier="xxhdpi" />
+<icon src="fr-xxhdpi.png" gap:platform="android" gap:qualifier="fr-xxhdpi" />
 
 	<access origin="*" />
 </widget>
